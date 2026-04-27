@@ -1,0 +1,1363 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dr. Ilyes Amrani — Dental Specialist</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500&family=Ubuntu:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --bg: oklch(0.98 0.005 220);
+                --bg2: oklch(0.94 0.008 220);
+                --bg3: oklch(0.9 0.01 220);
+                --text: oklch(0.18 0.015 240);
+                --muted: oklch(0.5 0.015 240);
+                --teal: oklch(0.52 0.14 185);
+                --blue: oklch(0.5 0.14 230);
+                --line: oklch(0.84 0.01 220);
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                background: var(--bg);
+                color: var(--text);
+                font-family: 'DM Sans', sans-serif;
+                overflow-x: hidden;
+                cursor: crosshair;
+            }
+
+            /* NAV */
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 28px 56px;
+            }
+            nav::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to bottom,
+                    oklch(0.98 0.005 220 / 0.95),
+                    transparent
+                );
+                pointer-events: none;
+            }
+            .nav-logo {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.4rem;
+                font-weight: 300;
+                letter-spacing: 0.04em;
+                color: var(--text);
+                text-decoration: none;
+                position: relative;
+                z-index: 1;
+            }
+            .nav-logo span {
+                color: var(--teal);
+            }
+            .nav-links {
+                display: flex;
+                gap: 40px;
+                list-style: none;
+                position: relative;
+                z-index: 1;
+            }
+            .nav-links a {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.78rem;
+                font-weight: 400;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--muted);
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .nav-links a:hover {
+                color: var(--text);
+            }
+            .nav-cta {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.78rem;
+                font-weight: 500;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--bg);
+                background: var(--teal);
+                border: none;
+                padding: 12px 28px;
+                cursor: pointer;
+                position: relative;
+                z-index: 1;
+                clip-path: polygon(
+                    0 0,
+                    calc(100% - 12px) 0,
+                    100% 12px,
+                    100% 100%,
+                    12px 100%,
+                    0 calc(100% - 12px)
+                );
+                transition:
+                    background 0.3s,
+                    transform 0.2s;
+            }
+            .nav-cta:hover {
+                background: var(--blue);
+                transform: translateY(-1px);
+            }
+
+            /* HERO */
+            #hero {
+                position: relative;
+                min-height: 100vh;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                overflow: hidden;
+                padding: 0 40px;
+            }
+
+            .hero-left {
+                padding: 160px 56px 80px 100px;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                z-index: 2;
+            }
+            .hero-eyebrow {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--teal);
+                margin-bottom: 28px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                opacity: 0;
+            }
+            .hero-eyebrow::before {
+                content: '';
+                display: block;
+                width: 32px;
+                height: 1px;
+                background: var(--teal);
+            }
+            .hero-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(3.8rem, 6vw, 7rem);
+                font-weight: 300;
+                line-height: 1;
+                letter-spacing: -0.01em;
+                overflow: hidden;
+            }
+            .hero-title .line {
+                display: block;
+                overflow: hidden;
+            }
+            .hero-title .line span {
+                display: block;
+                transform: translateY(110%);
+            }
+            .hero-title em {
+                font-style: italic;
+                color: var(--teal);
+            }
+            .hero-sub {
+                margin-top: 36px;
+                font-family: 'DM Sans', sans-serif;
+                font-size: 1rem;
+                font-weight: 300;
+                line-height: 1.7;
+                color: var(--muted);
+                max-width: 340px;
+                opacity: 0;
+            }
+            .hero-actions {
+                margin-top: 48px;
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                opacity: 0;
+            }
+            .btn-primary {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.78rem;
+                font-weight: 500;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--bg);
+                background: var(--teal);
+                border: none;
+                padding: 16px 36px;
+                cursor: pointer;
+                clip-path: polygon(
+                    0 0,
+                    calc(100% - 14px) 0,
+                    100% 14px,
+                    100% 100%,
+                    14px 100%,
+                    0 calc(100% - 14px)
+                );
+                transition:
+                    background 0.3s,
+                    transform 0.2s;
+            }
+            .btn-primary:hover {
+                background: var(--blue);
+                transform: translateY(-2px);
+            }
+            .btn-ghost {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.78rem;
+                font-weight: 400;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--muted);
+                background: none;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: color 0.3s;
+            }
+            .btn-ghost::after {
+                content: '↓';
+                font-size: 1rem;
+                color: var(--teal);
+                transition: transform 0.3s;
+            }
+            .btn-ghost:hover {
+                color: var(--text);
+            }
+            .btn-ghost:hover::after {
+                transform: translateY(3px);
+            }
+
+            /* HERO RIGHT — doctor + floaters */
+            .hero-right {
+                position: relative;
+                height: 100vh;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                z-index: 1;
+            }
+
+            .hero-blob {
+                position: absolute;
+                width: 500px;
+                height: 600px;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                background: radial-gradient(
+                    ellipse at 50% 80%,
+                    oklch(0.52 0.14 185 / 0.1) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+
+            .doctor-img {
+                position: relative;
+                z-index: 3;
+                height: 88vh;
+                max-height: 780px;
+                object-fit: contain;
+                object-position: bottom;
+                filter: drop-shadow(0 40px 60px oklch(0.5 0.05 220 / 0.18));
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .floater {
+                position: absolute;
+                pointer-events: none;
+                opacity: 0;
+            }
+            .floater img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .floater-tooth {
+                width: 136px;
+                height: 136px;
+                top: 15%;
+                right: 8%;
+                z-index: 3;
+            }
+            .floater-mirror {
+                width: 130px;
+                height: 130px;
+                top: 45%;
+                left: 18%;
+                z-index: 3;
+            }
+            .floater-brush {
+                width: 196px;
+                height: 196px;
+                bottom: 10%;
+                right: 3%;
+                z-index: 4;
+            }
+
+            /* Decorative grid lines */
+            .hero-grid-lines {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                z-index: 0;
+                opacity: 0.04;
+                background-image:
+                    linear-gradient(var(--teal) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--teal) 1px, transparent 1px);
+                background-size: 80px 80px;
+                mask-image: radial-gradient(
+                    ellipse at 70% 50%,
+                    black 20%,
+                    transparent 70%
+                );
+            }
+
+            /* TREATMENTS */
+            #treatments {
+                padding: 120px 56px;
+                position: relative;
+            }
+            .section-header {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                margin-bottom: 72px;
+            }
+            .section-label {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--teal);
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .section-label::before {
+                content: '';
+                display: block;
+                width: 32px;
+                height: 1px;
+                background: var(--teal);
+            }
+            .section-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(2.8rem, 4vw, 4.5rem);
+                font-weight: 300;
+                line-height: 1.05;
+                overflow: hidden;
+            }
+            .section-title em {
+                font-style: italic;
+                color: var(--teal);
+            }
+            .section-desc {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.9rem;
+                font-weight: 300;
+                color: var(--muted);
+                max-width: 280px;
+                line-height: 1.7;
+                text-align: right;
+            }
+
+            .treatments-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2px;
+            }
+            .treatment-card {
+                position: relative;
+                overflow: hidden;
+                background: var(--bg2);
+                padding: 48px;
+                min-height: 320px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                cursor: pointer;
+                transition: background 0.4s;
+            }
+            .treatment-card:hover {
+                background: var(--bg3);
+            }
+            .treatment-card::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--teal);
+                transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .treatment-card:hover::after {
+                width: 100%;
+            }
+
+            .treatment-num {
+                position: absolute;
+                top: 40px;
+                right: 40px;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 5rem;
+                font-weight: 300;
+                line-height: 1;
+                color: oklch(0.84 0.01 220);
+                user-select: none;
+                transition: color 0.4s;
+            }
+            .treatment-card:hover .treatment-num {
+                color: oklch(0.78 0.06 185);
+            }
+
+            .treatment-icon {
+                width: 72px;
+                height: 72px;
+                margin-bottom: 24px;
+                position: relative;
+                z-index: 1;
+                transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+            .treatment-card:hover .treatment-icon {
+                transform: scale(1.12) rotate(-4deg);
+            }
+
+            .treatment-name {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 1.8rem;
+                font-weight: 500;
+                line-height: 1.2;
+                letter-spacing: -0.01em;
+                position: relative;
+                z-index: 1;
+            }
+            .treatment-name em {
+                font-style: italic;
+                font-weight: 400;
+                color: var(--teal);
+            }
+            .treatment-desc {
+                margin-top: 14px;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 0.88rem;
+                font-weight: 400;
+                line-height: 1.65;
+                color: var(--muted);
+                max-width: 340px;
+                position: relative;
+                z-index: 1;
+            }
+            .treatment-arrow {
+                margin-top: 24px;
+                font-size: 0.72rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--teal);
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                opacity: 0;
+                transform: translateX(-8px);
+                transition:
+                    opacity 0.3s,
+                    transform 0.3s;
+                position: relative;
+                z-index: 1;
+            }
+            .treatment-card:hover .treatment-arrow {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            /* ABOUT */
+            #about {
+                padding: 100px 56px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+                align-items: center;
+                border-top: 1px solid var(--line);
+            }
+            .about-label {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--teal);
+                margin-bottom: 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .about-label::before {
+                content: '';
+                display: block;
+                width: 32px;
+                height: 1px;
+                background: var(--teal);
+            }
+            .about-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+                font-weight: 300;
+                line-height: 1.1;
+            }
+            .about-title em {
+                font-style: italic;
+                color: var(--teal);
+            }
+            .about-body {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.95rem;
+                font-weight: 300;
+                line-height: 1.8;
+                color: var(--muted);
+                margin-top: 28px;
+            }
+            .about-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2px;
+            }
+            .about-stat {
+                background: var(--bg2);
+                padding: 32px 24px;
+                clip-path: polygon(
+                    0 0,
+                    calc(100% - 12px) 0,
+                    100% 12px,
+                    100% 100%,
+                    0 100%
+                );
+            }
+            .about-stat .n {
+                font-family: 'Ubuntu', sans-serif;
+                font-size: 2.6rem;
+                font-weight: 500;
+                color: var(--teal);
+                line-height: 1;
+                letter-spacing: -0.02em;
+            }
+            .about-stat .l {
+                font-family: 'Ubuntu', sans-serif;
+                font-size: 0.7rem;
+                font-weight: 400;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--muted);
+                margin-top: 10px;
+            }
+
+            /* FOOTER */
+            footer {
+                padding: 60px 56px;
+                border-top: 1px solid var(--line);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            footer .logo {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.3rem;
+                font-weight: 300;
+                color: var(--text);
+            }
+            footer .logo span {
+                color: var(--teal);
+            }
+            footer .copy {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.68rem;
+                letter-spacing: 0.1em;
+                color: var(--muted);
+                text-transform: uppercase;
+            }
+            footer .contact-btn {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.75rem;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--teal);
+                background: none;
+                border: 1px solid var(--line);
+                padding: 12px 24px;
+                cursor: pointer;
+                transition:
+                    border-color 0.3s,
+                    color 0.3s;
+            }
+            footer .contact-btn:hover {
+                border-color: var(--teal);
+                color: var(--text);
+            }
+
+            /* Scroll indicator */
+            .scroll-indicator {
+                position: absolute;
+                bottom: 40px;
+                left: 56px;
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.65rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: var(--muted);
+                opacity: 0;
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+            }
+            .scroll-line {
+                width: 1px;
+                height: 48px;
+                background: linear-gradient(
+                    to bottom,
+                    var(--teal),
+                    transparent
+                );
+                animation: scrollPulse 2s ease-in-out infinite;
+            }
+            @keyframes scrollPulse {
+                0%,
+                100% {
+                    opacity: 0.4;
+                    transform: scaleY(1);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scaleY(1.2);
+                }
+            }
+
+            /* Cursor dot */
+            .cursor-dot {
+                position: fixed;
+                width: 6px;
+                height: 6px;
+                background: var(--teal);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                transition:
+                    transform 0.1s,
+                    width 0.2s,
+                    height 0.2s,
+                    opacity 0.3s;
+            }
+            .cursor-ring {
+                position: fixed;
+                width: 32px;
+                height: 32px;
+                border: 1px solid oklch(0.52 0.14 185 / 0.4);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9998;
+                transform: translate(-50%, -50%);
+                transition:
+                    transform 0.15s ease-out,
+                    width 0.3s,
+                    height 0.3s;
+            }
+
+            /* ===== RESPONSIVE ===== */
+
+            /* Tablet */
+            @media (max-width: 1024px) {
+                nav {
+                    padding: 24px 32px;
+                }
+                .nav-links {
+                    gap: 24px;
+                }
+                .nav-links a {
+                    font-size: 0.72rem;
+                    letter-spacing: 0.1em;
+                }
+
+                #hero {
+                    padding: 0 16px;
+                }
+                .hero-left {
+                    padding: 140px 24px 60px 32px;
+                }
+
+                .doctor-img {
+                    height: 80vh;
+                    max-height: 680px;
+                }
+                .floater-tooth {
+                    width: 102px;
+                    height: 102px;
+                    top: 12%;
+                    right: 6%;
+                }
+                .floater-mirror {
+                    width: 100px;
+                    height: 100px;
+                    top: 42%;
+                    left: 12%;
+                }
+                .floater-brush {
+                    width: 147px;
+                    height: 147px;
+                    bottom: 8%;
+                    right: 2%;
+                }
+
+                #treatments {
+                    padding: 100px 32px;
+                }
+                #about {
+                    padding: 80px 32px;
+                    gap: 48px;
+                }
+                footer {
+                    padding: 48px 32px;
+                }
+                .scroll-indicator {
+                    left: 32px;
+                }
+                .treatment-card {
+                    padding: 40px 32px;
+                    min-height: 300px;
+                }
+                .treatment-num {
+                    top: 32px;
+                    right: 32px;
+                    font-size: 4.2rem;
+                }
+            }
+
+            /* Mobile */
+            @media (max-width: 768px) {
+                body {
+                    cursor: default;
+                }
+                .cursor-dot,
+                .cursor-ring {
+                    display: none;
+                }
+
+                nav {
+                    padding: 18px 20px;
+                }
+                .nav-links {
+                    display: none;
+                }
+                .nav-logo {
+                    font-size: 1.1rem;
+                }
+                .nav-cta {
+                    padding: 10px 18px;
+                    font-size: 0.68rem;
+                    letter-spacing: 0.08em;
+                }
+
+                #hero {
+                    grid-template-columns: 1fr;
+                    min-height: auto;
+                    padding: 0;
+                }
+                .hero-left {
+                    padding: 120px 24px 32px 24px;
+                }
+                .hero-eyebrow {
+                    font-size: 0.68rem;
+                    margin-bottom: 22px;
+                }
+                .hero-title {
+                    font-size: clamp(2.6rem, 11vw, 4.2rem);
+                }
+                .hero-sub {
+                    margin-top: 28px;
+                    max-width: 100%;
+                    font-size: 0.95rem;
+                }
+                .hero-actions {
+                    margin-top: 36px;
+                    flex-wrap: wrap;
+                    gap: 14px;
+                }
+                .btn-primary {
+                    padding: 14px 28px;
+                }
+
+                .hero-right {
+                    height: auto;
+                    min-height: 60vh;
+                    padding-top: 24px;
+                }
+                .hero-blob {
+                    width: 90%;
+                    height: 90%;
+                }
+                .doctor-img {
+                    height: auto;
+                    width: 100%;
+                    max-height: 560px;
+                    max-width: 420px;
+                }
+                .floater-tooth {
+                    width: 76px;
+                    height: 76px;
+                    top: 4%;
+                    right: 4%;
+                }
+                .floater-mirror {
+                    width: 78px;
+                    height: 78px;
+                    top: 32%;
+                    left: 4%;
+                }
+                .floater-brush {
+                    width: 105px;
+                    height: 105px;
+                    bottom: 2%;
+                    right: 0%;
+                }
+                .hero-grid-lines {
+                    background-size: 56px 56px;
+                }
+                .scroll-indicator {
+                    display: none;
+                }
+
+                #treatments {
+                    padding: 72px 24px;
+                }
+                .section-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 22px;
+                    margin-bottom: 44px;
+                }
+                .section-desc {
+                    text-align: left;
+                    max-width: 100%;
+                }
+                .treatments-grid {
+                    grid-template-columns: 1fr;
+                }
+                .treatment-card {
+                    padding: 36px 28px;
+                    min-height: 260px;
+                }
+                .treatment-num {
+                    top: 24px;
+                    right: 24px;
+                    font-size: 3.6rem;
+                }
+                .treatment-icon {
+                    width: 60px;
+                    height: 60px;
+                    margin-bottom: 18px;
+                }
+                .treatment-name {
+                    font-size: 1.85rem;
+                }
+                .treatment-desc {
+                    font-size: 0.85rem;
+                }
+
+                #about {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                    padding: 72px 24px;
+                }
+                .about-stats {
+                    grid-template-columns: 1fr;
+                    gap: 8px;
+                }
+                .about-stat {
+                    padding: 24px 22px;
+                }
+                .about-stat .n {
+                    font-size: 2.6rem;
+                }
+
+                footer {
+                    padding: 36px 24px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 20px;
+                }
+            }
+
+            /* Small mobile */
+            @media (max-width: 420px) {
+                nav {
+                    padding: 16px 16px;
+                }
+                .nav-logo {
+                    font-size: 1rem;
+                    letter-spacing: 0.02em;
+                }
+                .nav-cta {
+                    padding: 9px 14px;
+                    font-size: 0.62rem;
+                }
+
+                .hero-left {
+                    padding: 110px 20px 28px 20px;
+                }
+                .hero-title {
+                    font-size: clamp(2.2rem, 12.5vw, 3.4rem);
+                }
+
+                #treatments {
+                    padding: 60px 20px;
+                }
+                #about {
+                    padding: 60px 20px;
+                }
+                .treatment-card {
+                    padding: 32px 22px;
+                    min-height: 240px;
+                }
+                .treatment-num {
+                    font-size: 3.1rem;
+                    top: 20px;
+                    right: 20px;
+                }
+                .treatment-name {
+                    font-size: 1.65rem;
+                }
+
+                footer {
+                    padding: 32px 20px;
+                }
+            }
+
+            /* Touch devices — disable custom cursor regardless of width */
+            @media (hover: none) and (pointer: coarse) {
+                body {
+                    cursor: default;
+                }
+                .cursor-dot,
+                .cursor-ring {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cursor-dot" id="cursorDot"></div>
+        <div class="cursor-ring" id="cursorRing"></div>
+
+        <nav>
+            <a href="#" class="nav-logo">Dr. <span>Ilyes</span> Amrani</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#treatments">Treatments</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <button class="nav-cta">Book Appointment</button>
+        </nav>
+
+        <section id="hero">
+            <div class="hero-grid-lines"></div>
+
+            <div class="hero-left">
+                <p class="hero-eyebrow" id="eyebrow">
+                    Dental Specialist · Montreal
+                </p>
+
+                <h1 class="hero-title">
+                    <span class="line"
+                        ><span>Your <em>smile,</em></span></span
+                    >
+                    <span class="line"><span>our finest</span></span>
+                    <span class="line"><span>craft.</span></span>
+                </h1>
+
+                <p class="hero-sub" id="heroSub">
+                    Combining precision dentistry with a gentle touch, Dr.
+                    Amrani ensures every visit is comfortable and effective.
+                    Exceptional care starts with trust.
+                </p>
+
+                <div class="hero-actions" id="heroActions">
+                    <button class="btn-primary">Book a Visit</button>
+                    <button class="btn-ghost">Explore</button>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-blob"></div>
+
+                <img
+                    src="assets/doctor.png"
+                    alt="Dr. Ilyes Amrani"
+                    class="doctor-img"
+                    id="doctorImg"
+                />
+
+                <div class="floater floater-tooth" id="floaterTooth">
+                    <img src="assets/tooth_3d.png" alt="" />
+                </div>
+                <div class="floater floater-mirror" id="floaterMirror">
+                    <img src="assets/dentist_mirror.png" alt="" />
+                </div>
+                <div class="floater floater-brush" id="floaterBrush">
+                    <img src="assets/tooth_brush.png" alt="" />
+                </div>
+
+                <div class="scroll-indicator" id="scrollInd">
+                    <div class="scroll-line"></div>
+                    Scroll
+                </div>
+            </div>
+        </section>
+
+        <section id="treatments">
+            <div class="section-header">
+                <div>
+                    <p class="section-label">What we offer</p>
+                    <h2 class="section-title">The<em>treatments</em></h2>
+                </div>
+                <p class="section-desc">
+                    Each procedure performed with the highest standards of
+                    precision and care.
+                </p>
+            </div>
+
+            <div class="treatments-grid">
+                <div class="treatment-card" data-card="0">
+                    <div class="treatment-num">01</div>
+                    <img
+                        src="assets/treatements/filling.png"
+                        alt=""
+                        class="treatment-icon"
+                    />
+                    <h3 class="treatment-name">Dental <em>Filling</em></h3>
+                    <p class="treatment-desc">
+                        Restore decayed or damaged teeth using tooth-colored
+                        composite resin. Seamlessly matched to your natural
+                        enamel for an invisible finish.
+                    </p>
+                    <div class="treatment-arrow">Learn more →</div>
+                </div>
+
+                <div class="treatment-card" data-card="1">
+                    <div class="treatment-num">02</div>
+                    <img
+                        src="assets/treatements/root-canal.png"
+                        alt=""
+                        class="treatment-icon"
+                    />
+                    <h3 class="treatment-name">Root <em>Canal</em></h3>
+                    <p class="treatment-desc">
+                        Save an infected or severely damaged tooth through
+                        meticulous pulp removal and sealing, preserving your
+                        natural smile pain-free.
+                    </p>
+                    <div class="treatment-arrow">Learn more →</div>
+                </div>
+
+                <div class="treatment-card" data-card="2">
+                    <div class="treatment-num">03</div>
+                    <img
+                        src="assets/treatements/extraction.png"
+                        alt=""
+                        class="treatment-icon"
+                    />
+                    <h3 class="treatment-name">Tooth <em>Extraction</em></h3>
+                    <p class="treatment-desc">
+                        When preservation isn't possible, a swift and
+                        comfortable extraction with minimal downtime, setting
+                        the stage for your next step.
+                    </p>
+                    <div class="treatment-arrow">Learn more →</div>
+                </div>
+
+                <div class="treatment-card" data-card="3">
+                    <div class="treatment-num">04</div>
+                    <img
+                        src="assets/treatements/implant.png"
+                        alt=""
+                        class="treatment-icon"
+                    />
+                    <h3 class="treatment-name">Dental <em>Implant</em></h3>
+                    <p class="treatment-desc">
+                        A permanent titanium root fused with your bone, crowned
+                        with a lifelike prosthetic. The gold standard for
+                        replacing missing teeth.
+                    </p>
+                    <div class="treatment-arrow">Learn more →</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div>
+                <p class="about-label">The Doctor</p>
+                <h2 class="about-title">
+                    Dedicated to <em>excellence</em> in every smile.
+                </h2>
+                <p class="about-body">
+                    A graduate of the Université de Montréal, Dr. Ilyes Amrani
+                    practices at the leading edge of contemporary dentistry
+                    combining the most recent techniques and evidence-based
+                    protocols to bring the very best that modern dental medicine
+                    has to offer to every patient who sits in his chair.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <div class="n">DMD</div>
+                    <div class="l">Université de Montréal</div>
+                </div>
+                <div class="about-stat">
+                    <div class="n">1K+</div>
+                    <div class="l">Patients Treated</div>
+                </div>
+                <div class="about-stat">
+                    <div class="n">Multiple</div>
+                    <div class="l">Specialties</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="logo">Dr. <span>Ilyes</span> Amrani</div>
+            <p class="copy">© 2026 · Montreal, Canada</p>
+            <button class="contact-btn">Contact</button>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            const dot = document.getElementById('cursorDot');
+            const ring = document.getElementById('cursorRing');
+            let mx = 0,
+                my = 0,
+                rx = 0,
+                ry = 0;
+            document.addEventListener('mousemove', (e) => {
+                mx = e.clientX;
+                my = e.clientY;
+                gsap.to(dot, {x: mx, y: my, duration: 0.08});
+            });
+            function lerp(a, b, t) {
+                return a + (b - a) * t;
+            }
+            (function animRing() {
+                rx = lerp(rx, mx, 0.12);
+                ry = lerp(ry, my, 0.12);
+                gsap.set(ring, {x: rx, y: ry});
+                requestAnimationFrame(animRing);
+            })();
+            document
+                .querySelectorAll('button, a, .treatment-card')
+                .forEach((el) => {
+                    el.addEventListener('mouseenter', () => {
+                        gsap.to(ring, {
+                            width: 56,
+                            height: 56,
+                            borderColor: 'oklch(0.72 0.14 185 / 0.8)',
+                            duration: 0.3,
+                        });
+                        gsap.to(dot, {scale: 0.5, duration: 0.2});
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        gsap.to(ring, {
+                            width: 32,
+                            height: 32,
+                            borderColor: 'oklch(0.52 0.14 185 / 0.4)',
+                            duration: 0.3,
+                        });
+                        gsap.to(dot, {scale: 1, duration: 0.2});
+                    });
+                });
+
+            const tl = gsap.timeline({defaults: {ease: 'power3.out'}});
+
+            tl.to('.hero-title .line span', {
+                translateY: '0%',
+                stagger: 0.12,
+                duration: 1.1,
+                delay: 0.3,
+            })
+                .to('#eyebrow', {opacity: 1, y: 0, duration: 0.7}, '-=0.6')
+                .to(
+                    '#doctorImg',
+                    {opacity: 1, y: 0, duration: 1.0, ease: 'power2.out'},
+                    '-=0.8',
+                )
+                .to('#heroSub', {opacity: 1, y: 0, duration: 0.7}, '-=0.5')
+                .to('#heroActions', {opacity: 1, y: 0, duration: 0.6}, '-=0.4')
+                .to('#scrollInd', {opacity: 1, duration: 0.6}, '-=0.3')
+                .to(
+                    ['.floater-tooth', '.floater-mirror', '.floater-brush'],
+                    {
+                        opacity: 1,
+                        stagger: 0.15,
+                        duration: 0.8,
+                        ease: 'back.out(1.4)',
+                    },
+                    '-=0.8',
+                );
+
+            gsap.to('#floaterTooth', {
+                y: -22,
+                rotation: 8,
+                duration: 3.4,
+                ease: 'sine.inOut',
+                yoyo: true,
+                repeat: -1,
+            });
+            gsap.to('#floaterMirror', {
+                y: 18,
+                rotation: -10,
+                x: 8,
+                duration: 2.8,
+                ease: 'sine.inOut',
+                yoyo: true,
+                repeat: -1,
+                delay: 0.5,
+            });
+            gsap.to('#floaterBrush', {
+                y: -14,
+                rotation: 6,
+                x: -6,
+                duration: 3.8,
+                ease: 'sine.inOut',
+                yoyo: true,
+                repeat: -1,
+                delay: 1.0,
+            });
+
+            gsap.from('#treatments .section-title', {
+                scrollTrigger: {trigger: '#treatments', start: 'top 78%'},
+                y: 60,
+                opacity: 0,
+                duration: 1.0,
+                ease: 'power3.out',
+            });
+            gsap.from('#treatments .section-label', {
+                scrollTrigger: {trigger: '#treatments', start: 'top 80%'},
+                x: -30,
+                opacity: 0,
+                duration: 0.7,
+                ease: 'power3.out',
+            });
+            gsap.from('#treatments .section-desc', {
+                scrollTrigger: {trigger: '#treatments', start: 'top 78%'},
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                delay: 0.2,
+                ease: 'power3.out',
+            });
+
+            document.querySelectorAll('.treatment-card').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {trigger: card, start: 'top 85%'},
+                    y: 60,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: (i % 2) * 0.15,
+                    ease: 'power3.out',
+                });
+            });
+
+            gsap.from('#about .about-title', {
+                scrollTrigger: {trigger: '#about', start: 'top 78%'},
+                y: 50,
+                opacity: 0,
+                duration: 1.0,
+                ease: 'power3.out',
+            });
+            gsap.from('#about .about-body', {
+                scrollTrigger: {trigger: '#about', start: 'top 75%'},
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                delay: 0.2,
+                ease: 'power3.out',
+            });
+            gsap.from('.about-stat', {
+                scrollTrigger: {trigger: '#about', start: 'top 72%'},
+                y: 40,
+                opacity: 0,
+                stagger: 0.12,
+                duration: 0.7,
+                delay: 0.3,
+                ease: 'back.out(1.4)',
+            });
+
+            gsap.to('#doctorImg', {
+                y: -80,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1.2,
+                },
+            });
+            gsap.to('.floater-tooth', {
+                y: -50,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 2,
+                },
+            });
+            gsap.to('.floater-mirror', {
+                y: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1.5,
+                },
+            });
+        </script>
+    </body>
+</html>
