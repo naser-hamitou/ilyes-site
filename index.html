@@ -109,6 +109,10 @@
                 border: none;
                 padding: 12px 28px;
                 cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
                 position: relative;
                 z-index: 1;
                 clip-path: polygon(
@@ -213,6 +217,10 @@
                 border: none;
                 padding: 16px 36px;
                 cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
                 clip-path: polygon(
                     0 0,
                     calc(100% - 14px) 0,
@@ -242,6 +250,7 @@
                 display: flex;
                 align-items: center;
                 gap: 10px;
+                text-decoration: none;
                 transition: color 0.3s;
             }
             .btn-ghost::after {
@@ -585,6 +594,215 @@
                 margin-top: 10px;
             }
 
+            /* CONTACT */
+            #contact {
+                padding: 110px 56px;
+                border-top: 1px solid var(--line);
+                display: grid;
+                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+                gap: 80px;
+                align-items: start;
+            }
+            .contact-label,
+            .sms-label,
+            .privacy-label {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--teal);
+                margin-bottom: 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .contact-label::before,
+            .sms-label::before,
+            .privacy-label::before {
+                content: '';
+                display: block;
+                width: 32px;
+                height: 1px;
+                background: var(--teal);
+            }
+            .contact-title,
+            .sms-title,
+            .privacy-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(2.2rem, 3.6vw, 4rem);
+                font-weight: 300;
+                line-height: 1.08;
+            }
+            .contact-title em,
+            .sms-title em,
+            .privacy-title em {
+                font-style: italic;
+                color: var(--teal);
+            }
+            .contact-body {
+                margin-top: 28px;
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.95rem;
+                font-weight: 300;
+                line-height: 1.8;
+                color: var(--muted);
+                max-width: 420px;
+            }
+            .contact-details {
+                margin-top: 40px;
+                display: grid;
+                gap: 18px;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.78rem;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--muted);
+            }
+            .contact-form {
+                display: grid;
+                gap: 20px;
+            }
+            .form-row {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 18px;
+            }
+            .field {
+                display: grid;
+                gap: 10px;
+            }
+            .field label {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.68rem;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--muted);
+            }
+            .field input,
+            .field textarea {
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid var(--line);
+                background: transparent;
+                color: var(--text);
+                font: 400 1rem/1.6 'DM Sans', sans-serif;
+                padding: 10px 0 14px;
+                outline: none;
+                transition: border-color 0.3s;
+            }
+            .field textarea {
+                min-height: 128px;
+                resize: vertical;
+            }
+            .field input:focus,
+            .field textarea:focus {
+                border-color: var(--teal);
+            }
+            .sms-disclaimer {
+                border-left: 2px solid var(--teal);
+                padding: 4px 0 4px 18px;
+                color: var(--muted);
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.82rem;
+                font-weight: 300;
+                line-height: 1.7;
+            }
+            .sms-disclaimer a,
+            .sms-copy a,
+            .privacy-copy a {
+                color: var(--teal);
+                text-decoration: none;
+                border-bottom: 1px solid oklch(0.52 0.14 185 / 0.35);
+            }
+            .form-submit {
+                justify-self: start;
+                margin-top: 10px;
+            }
+
+            /* SMS TERMS */
+            #sms-terms {
+                padding: 96px 56px;
+                border-top: 1px solid var(--line);
+                display: grid;
+                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+                gap: 80px;
+                align-items: start;
+            }
+            .sms-copy {
+                display: grid;
+                gap: 26px;
+                color: var(--muted);
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.94rem;
+                font-weight: 300;
+                line-height: 1.8;
+            }
+            .sms-copy strong {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .sms-term-list {
+                border-top: 1px solid var(--line);
+            }
+            .sms-term {
+                display: grid;
+                grid-template-columns: minmax(130px, 0.34fr) minmax(0, 1fr);
+                gap: 28px;
+                padding: 20px 0;
+                border-bottom: 1px solid var(--line);
+            }
+            .sms-term h3 {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.7rem;
+                font-weight: 500;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--teal);
+            }
+            .sms-term ul {
+                display: grid;
+                gap: 8px;
+                list-style: none;
+            }
+            .sample-messages {
+                display: grid;
+                gap: 14px;
+            }
+            .sample-message {
+                border-left: 2px solid var(--teal);
+                padding-left: 18px;
+            }
+
+            /* PRIVACY */
+            #privacy {
+                padding: 96px 56px 110px;
+                border-top: 1px solid var(--line);
+                display: grid;
+                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+                gap: 80px;
+            }
+            .privacy-copy {
+                display: grid;
+                gap: 22px;
+                color: var(--muted);
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.94rem;
+                font-weight: 300;
+                line-height: 1.8;
+            }
+            .privacy-copy strong {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .privacy-list {
+                list-style: none;
+                border-top: 1px solid var(--line);
+            }
+            .privacy-list li {
+                padding: 18px 0;
+                border-bottom: 1px solid var(--line);
+            }
+
             /* FOOTER */
             footer {
                 padding: 60px 56px;
@@ -619,6 +837,7 @@
                 border: 1px solid var(--line);
                 padding: 12px 24px;
                 cursor: pointer;
+                text-decoration: none;
                 transition:
                     border-color 0.3s,
                     color 0.3s;
@@ -749,6 +968,12 @@
                 #about {
                     padding: 80px 32px;
                     gap: 48px;
+                }
+                #sms-terms,
+                #contact,
+                #privacy {
+                    padding: 88px 32px;
+                    gap: 56px;
                 }
                 footer {
                     padding: 48px 32px;
@@ -903,6 +1128,20 @@
                     gap: 40px;
                     padding: 72px 24px;
                 }
+                #sms-terms,
+                #contact,
+                #privacy {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                    padding: 72px 24px;
+                }
+                .form-row {
+                    grid-template-columns: 1fr;
+                }
+                .sms-term {
+                    grid-template-columns: 1fr;
+                    gap: 12px;
+                }
                 .about-stats {
                     grid-template-columns: 1fr;
                     gap: 8px;
@@ -949,6 +1188,11 @@
                 #about {
                     padding: 60px 20px;
                 }
+                #sms-terms,
+                #contact,
+                #privacy {
+                    padding: 60px 20px;
+                }
                 .treatment-card {
                     padding: 32px 22px;
                     min-height: 240px;
@@ -989,8 +1233,11 @@
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#treatments">Treatments</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#sms-terms">SMS</a></li>
+                <li><a href="#privacy">Privacy</a></li>
             </ul>
-            <button class="nav-cta">Book Appointment</button>
+            <a href="#contact" class="nav-cta">Book Appointment</a>
         </nav>
 
         <section id="hero">
@@ -1016,8 +1263,8 @@
                 </p>
 
                 <div class="hero-actions" id="heroActions">
-                    <button class="btn-primary">Book a Visit</button>
-                    <button class="btn-ghost">Explore</button>
+                    <a href="#contact" class="btn-primary">Book a Visit</a>
+                    <a href="#treatments" class="btn-ghost">Explore</a>
                 </div>
             </div>
 
@@ -1157,10 +1404,226 @@
             </div>
         </section>
 
+        <section id="contact">
+            <div>
+                <p class="contact-label">Contact Us</p>
+                <h2 class="contact-title">
+                    Request a <em>visit</em> with the clinic.
+                </h2>
+                <p class="contact-body">
+                    Send your details and the care team will follow up about
+                    availability, next steps, and appointment coordination.
+                    Providing a phone number is optional.
+                </p>
+                <div class="contact-details" aria-label="Clinic details">
+                    <p>Montreal, Canada</p>
+                    <p>General dentistry and restorative care</p>
+                </div>
+            </div>
+
+            <form class="contact-form" action="#" method="post">
+                <div class="form-row">
+                    <div class="field">
+                        <label for="name">Full name</label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            autocomplete="name"
+                            required
+                        />
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="field">
+                        <label for="phone">Phone number (optional)</label>
+                        <input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            autocomplete="tel"
+                        />
+                    </div>
+                    <div class="field">
+                        <label for="service">Service of interest</label>
+                        <input id="service" name="service" type="text" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <p class="sms-disclaimer">
+                    By providing a telephone number and submitting the form, you
+                    are consenting to be contacted by SMS text message and
+                    agreeing to our <a href="#privacy">Privacy Policy</a>.
+                    Message frequency may vary. Message and data rates may
+                    apply. Reply STOP to opt out of further messaging. Reply
+                    HELP for more information.
+                </p>
+                <button class="btn-primary form-submit" type="submit">
+                    Send Request
+                </button>
+            </form>
+        </section>
+
+        <section id="sms-terms">
+            <div>
+                <p class="sms-label">SMS Terms</p>
+                <h2 class="sms-title">
+                    Text updates for <em>patient care</em>.
+                </h2>
+            </div>
+            <div class="sms-copy">
+                <p>
+                    <strong>Campaign name:</strong> Dr. Ilyes Amrani phone
+                    campaign. SMS messages are used for appointment scheduling,
+                    reminders, follow-up coordination, and direct responses to
+                    patient or prospective patient inquiries.
+                </p>
+                <div class="sms-term-list">
+                    <div class="sms-term">
+                        <h3>Who Sends</h3>
+                        <p>
+                            Dr. Ilyes Amrani and authorized clinic staff may
+                            send messages related to dental care coordination.
+                        </p>
+                    </div>
+                    <div class="sms-term">
+                        <h3>Who Receives</h3>
+                        <p>
+                            Patients and prospective patients who voluntarily
+                            provide a phone number through this website, by
+                            phone, or in person may receive messages.
+                        </p>
+                    </div>
+                    <div class="sms-term">
+                        <h3>Campaign Type</h3>
+                        <p>
+                            Customer care and appointment reminders for dental
+                            services. The campaign is not used for lending,
+                            loans, financing offers, or age-gated content.
+                        </p>
+                    </div>
+                    <div class="sms-term">
+                        <h3>Content</h3>
+                        <ul>
+                            <li>Appointment requests and scheduling updates</li>
+                            <li>Appointment reminders and confirmations</li>
+                            <li>Care coordination and inquiry responses</li>
+                            <li>
+                                No age-gated content, lending or loan offers,
+                                unrelated third-party promotions, or marketing
+                                messages from affiliates
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sms-term">
+                        <h3>Frequency</h3>
+                        <p>
+                            Message frequency varies by request and appointment
+                            activity, typically up to 4 messages per appointment
+                            or inquiry.
+                        </p>
+                    </div>
+                    <div class="sms-term">
+                        <h3>Consent</h3>
+                        <p>
+                            Providing a phone number is optional. If you provide
+                            one and submit the Contact Us form, you consent to
+                            receive SMS messages about your request.
+                        </p>
+                    </div>
+                    <div class="sms-term">
+                        <h3>Opt Out</h3>
+                        <p>
+                            Reply STOP to opt out of further messaging. Reply
+                            HELP for more information. Message and data rates
+                            may apply.
+                        </p>
+                    </div>
+                    <div class="sms-term">
+                        <h3>Links</h3>
+                        <p>
+                            Messages may include links only when relevant to
+                            appointment scheduling, patient forms, clinic
+                            directions, or practice information.
+                        </p>
+                    </div>
+                </div>
+                <div class="sample-messages">
+                    <p><strong>Sample messages reviewed for this campaign:</strong></p>
+                    <p class="sample-message">
+                        Dr. Ilyes Amrani: We received your appointment request
+                        and will follow up with available times. Reply STOP to
+                        opt out or HELP for help.
+                    </p>
+                    <p class="sample-message">
+                        Dr. Ilyes Amrani: Your dental appointment is scheduled
+                        for [date] at [time]. Reply STOP to opt out or HELP for
+                        help.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <div>
+                <p class="privacy-label">Privacy Policy</p>
+                <h2 class="privacy-title">
+                    How contact details are <em>handled</em>.
+                </h2>
+            </div>
+            <div class="privacy-copy">
+                <p>
+                    Information submitted through this website is used to
+                    respond to appointment requests, answer questions, and
+                    coordinate dental care. This can include your name, email
+                    address, optional phone number, service interest, and
+                    message details.
+                </p>
+                <p>
+                    <strong>SMS consent is not transferable.</strong> Phone
+                    numbers and text-message opt-in consent collected by this
+                    practice are not sold, rented, or shared with third parties
+                    or affiliates for marketing or promotional purposes.
+                    No mobile information will be shared with third
+                    parties/affiliates for marketing/promotional purposes. All
+                    other categories exclude text messaging originator opt-in
+                    data and consent; this information will not be shared with
+                    any third parties.
+                </p>
+                <ul class="privacy-list">
+                    <li>
+                        Service providers may process contact requests only as
+                        needed to operate the website or clinic workflow.
+                    </li>
+                    <li>
+                        Mobile opt-in records and consent are excluded from any
+                        third-party data sharing.
+                    </li>
+                    <li>
+                        You can opt out of SMS communication at any time by
+                        replying STOP, or request help by replying HELP.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <footer>
             <div class="logo">Dr. <span>Ilyes</span> Amrani</div>
             <p class="copy">© 2026 · Montreal, Canada</p>
-            <button class="contact-btn">Contact</button>
+            <a href="#contact" class="contact-btn">Contact</a>
         </footer>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1326,6 +1789,46 @@
                 duration: 0.7,
                 delay: 0.3,
                 ease: 'back.out(1.4)',
+            });
+            gsap.from('#contact .contact-title', {
+                scrollTrigger: {trigger: '#contact', start: 'top 78%'},
+                y: 50,
+                opacity: 0,
+                duration: 0.9,
+                ease: 'power3.out',
+            });
+            gsap.from('#contact .contact-body, #contact .contact-details', {
+                scrollTrigger: {trigger: '#contact', start: 'top 74%'},
+                y: 28,
+                opacity: 0,
+                stagger: 0.12,
+                duration: 0.7,
+                delay: 0.1,
+                ease: 'power3.out',
+            });
+            gsap.from('.contact-form', {
+                scrollTrigger: {trigger: '#contact', start: 'top 72%'},
+                y: 42,
+                opacity: 0,
+                duration: 0.8,
+                delay: 0.2,
+                ease: 'power3.out',
+            });
+            gsap.from('#sms-terms .sms-title, #sms-terms .sms-copy', {
+                scrollTrigger: {trigger: '#sms-terms', start: 'top 78%'},
+                y: 42,
+                opacity: 0,
+                stagger: 0.14,
+                duration: 0.8,
+                ease: 'power3.out',
+            });
+            gsap.from('#privacy .privacy-title, #privacy .privacy-copy', {
+                scrollTrigger: {trigger: '#privacy', start: 'top 78%'},
+                y: 42,
+                opacity: 0,
+                stagger: 0.14,
+                duration: 0.8,
+                ease: 'power3.out',
             });
 
             gsap.to('#doctorImg', {
