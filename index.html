@@ -605,7 +605,8 @@
             }
             .contact-label,
             .sms-label,
-            .privacy-label {
+            .privacy-label,
+            .terms-label {
                 font-family: 'Space Grotesk', sans-serif;
                 font-size: 0.72rem;
                 letter-spacing: 0.22em;
@@ -618,7 +619,8 @@
             }
             .contact-label::before,
             .sms-label::before,
-            .privacy-label::before {
+            .privacy-label::before,
+            .terms-label::before {
                 content: '';
                 display: block;
                 width: 32px;
@@ -627,7 +629,8 @@
             }
             .contact-title,
             .sms-title,
-            .privacy-title {
+            .privacy-title,
+            .terms-title {
                 font-family: 'Cormorant Garamond', serif;
                 font-size: clamp(2.2rem, 3.6vw, 4rem);
                 font-weight: 300;
@@ -635,7 +638,8 @@
             }
             .contact-title em,
             .sms-title em,
-            .privacy-title em {
+            .privacy-title em,
+            .terms-title em {
                 font-style: italic;
                 color: var(--teal);
             }
@@ -657,6 +661,15 @@
                 letter-spacing: 0.12em;
                 text-transform: uppercase;
                 color: var(--muted);
+            }
+            .contact-details a {
+                color: var(--text);
+                text-decoration: none;
+                border-bottom: 1px solid oklch(0.52 0.14 185 / 0.35);
+                transition: color 0.3s;
+            }
+            .contact-details a:hover {
+                color: var(--teal);
             }
             .contact-form {
                 display: grid;
@@ -709,7 +722,8 @@
             }
             .sms-disclaimer a,
             .sms-copy a,
-            .privacy-copy a {
+            .privacy-copy a,
+            .terms-copy a {
                 color: var(--teal);
                 text-decoration: none;
                 border-bottom: 1px solid oklch(0.52 0.14 185 / 0.35);
@@ -775,7 +789,7 @@
 
             /* PRIVACY */
             #privacy {
-                padding: 96px 56px 110px;
+                padding: 96px 56px;
                 border-top: 1px solid var(--line);
                 display: grid;
                 grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -803,6 +817,36 @@
                 border-bottom: 1px solid var(--line);
             }
 
+            /* TERMS & CONDITIONS */
+            #terms {
+                padding: 96px 56px 110px;
+                border-top: 1px solid var(--line);
+                display: grid;
+                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+                gap: 80px;
+            }
+            .terms-copy {
+                display: grid;
+                gap: 22px;
+                color: var(--muted);
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.94rem;
+                font-weight: 300;
+                line-height: 1.8;
+            }
+            .terms-copy strong {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .terms-list {
+                list-style: none;
+                border-top: 1px solid var(--line);
+            }
+            .terms-list li {
+                padding: 18px 0;
+                border-bottom: 1px solid var(--line);
+            }
+
             /* FOOTER */
             footer {
                 padding: 60px 56px;
@@ -810,6 +854,25 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+            footer .footer-links {
+                display: flex;
+                gap: 28px;
+                list-style: none;
+            }
+            footer .footer-links a {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--muted);
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            footer .footer-links a:hover {
+                color: var(--teal);
             }
             footer .logo {
                 font-family: 'Cormorant Garamond', serif;
@@ -971,7 +1034,8 @@
                 }
                 #sms-terms,
                 #contact,
-                #privacy {
+                #privacy,
+                #terms {
                     padding: 88px 32px;
                     gap: 56px;
                 }
@@ -1130,7 +1194,8 @@
                 }
                 #sms-terms,
                 #contact,
-                #privacy {
+                #privacy,
+                #terms {
                     grid-template-columns: 1fr;
                     gap: 40px;
                     padding: 72px 24px;
@@ -1190,7 +1255,8 @@
                 }
                 #sms-terms,
                 #contact,
-                #privacy {
+                #privacy,
+                #terms {
                     padding: 60px 20px;
                 }
                 .treatment-card {
@@ -1235,6 +1301,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#sms-terms">SMS</a></li>
+                <li><a href="#terms">Terms</a></li>
                 <li><a href="#privacy">Privacy</a></li>
             </ul>
             <a href="#contact" class="nav-cta">Book Appointment</a>
@@ -1418,6 +1485,22 @@
                 <div class="contact-details" aria-label="Clinic details">
                     <p>Montreal, Canada</p>
                     <p>General dentistry and restorative care</p>
+                    <p>
+                        Email:
+                        <a href="mailto:Drilyesamrani@gmail.com"
+                            >Drilyesamrani@gmail.com</a
+                        >
+                    </p>
+                    <p>
+                        Phone:
+                        <a href="tel:+14383207431">+1 (438) 320-7431</a>
+                    </p>
+                    <p>
+                        Website:
+                        <a href="https://drilyesamrani.netlify.app"
+                            >drilyesamrani.netlify.app</a
+                        >
+                    </p>
                 </div>
             </div>
 
@@ -1466,10 +1549,15 @@
                 <p class="sms-disclaimer">
                     By providing a telephone number and submitting the form, you
                     are consenting to be contacted by SMS text message and
-                    agreeing to our <a href="#privacy">Privacy Policy</a>.
-                    Message frequency may vary. Message and data rates may
-                    apply. Reply STOP to opt out of further messaging. Reply
-                    HELP for more information.
+                    agreeing to our <a href="#terms">Terms &amp; Conditions</a>
+                    and <a href="#privacy">Privacy Policy</a>. Message frequency
+                    may vary. Message and data rates may apply. Reply STOP to
+                    opt out of further messaging. Reply HELP for support
+                    contact (email
+                    <a href="mailto:Drilyesamrani@gmail.com"
+                        >Drilyesamrani@gmail.com</a
+                    >, phone
+                    <a href="tel:+14383207431">+1 (438) 320-7431</a>).
                 </p>
                 <button class="btn-primary form-submit" type="submit">
                     Send Request
@@ -1545,11 +1633,19 @@
                         </p>
                     </div>
                     <div class="sms-term">
-                        <h3>Opt Out</h3>
+                        <h3>Opt Out &amp; Help</h3>
                         <p>
-                            Reply STOP to opt out of further messaging. Reply
-                            HELP for more information. Message and data rates
-                            may apply.
+                            Reply STOP at any time to opt out of further
+                            messaging. Reply HELP to receive an automated
+                            response containing our support contact: email
+                            <a href="mailto:Drilyesamrani@gmail.com"
+                                >Drilyesamrani@gmail.com</a
+                            >, phone
+                            <a href="tel:+14383207431">+1 (438) 320-7431</a>,
+                            and support website
+                            <a href="https://drilyesamrani.netlify.app"
+                                >drilyesamrani.netlify.app</a
+                            >. Message and data rates may apply.
                         </p>
                     </div>
                     <div class="sms-term">
@@ -1572,6 +1668,23 @@
                         Dr. Ilyes Amrani: Your dental appointment is scheduled
                         for [date] at [time]. Reply STOP to opt out or HELP for
                         help.
+                    </p>
+                    <p>
+                        <strong>HELP auto-reply (sent when a recipient texts HELP):</strong>
+                    </p>
+                    <p class="sample-message">
+                        Dr. Ilyes Amrani Support: For help, email
+                        Drilyesamrani@gmail.com, call +1 (438) 320-7431, or
+                        visit drilyesamrani.netlify.app. Msg&amp;data rates
+                        may apply. Reply STOP to opt out.
+                    </p>
+                    <p>
+                        <strong>STOP auto-reply (sent when a recipient texts STOP):</strong>
+                    </p>
+                    <p class="sample-message">
+                        Dr. Ilyes Amrani: You are unsubscribed and will no
+                        longer receive messages from this number. Reply START
+                        to resubscribe.
                     </p>
                 </div>
             </div>
@@ -1620,8 +1733,115 @@
             </div>
         </section>
 
+        <section id="terms">
+            <div>
+                <p class="terms-label">Terms &amp; Conditions</p>
+                <h2 class="terms-title">
+                    Website and service <em>terms</em>.
+                </h2>
+            </div>
+            <div class="terms-copy">
+                <p>
+                    <strong>Last updated:</strong> May 2026. These Terms &amp;
+                    Conditions ("Terms") govern your use of this website
+                    operated by the dental practice of Dr. Ilyes Amrani
+                    ("we", "us", "our") and any related contact, appointment
+                    request, or SMS communication services we provide. By
+                    using this website or submitting your information, you
+                    agree to these Terms.
+                </p>
+                <p>
+                    <strong>Contact.</strong> Questions about these Terms can
+                    be sent to
+                    <a href="mailto:Drilyesamrani@gmail.com"
+                        >Drilyesamrani@gmail.com</a
+                    >
+                    or
+                    <a href="tel:+14383207431">+1 (438) 320-7431</a>.
+                </p>
+                <ul class="terms-list">
+                    <li>
+                        <strong>Informational use only.</strong> Content on
+                        this website is provided for general information about
+                        the practice and does not constitute medical, dental,
+                        or professional advice. A clinical consultation is
+                        required for any diagnosis or treatment.
+                    </li>
+                    <li>
+                        <strong>Appointment requests.</strong> Submitting the
+                        contact form is a request, not a confirmed
+                        appointment. Appointments are confirmed only after the
+                        clinic responds with a scheduled date and time.
+                    </li>
+                    <li>
+                        <strong>SMS messaging.</strong> If you provide a phone
+                        number and submit the contact form, you consent to
+                        receive SMS messages from Dr. Ilyes Amrani for
+                        appointment scheduling, reminders, care coordination,
+                        and responses to your inquiry. Message frequency
+                        varies; message and data rates may apply. Reply STOP
+                        to opt out. Reply HELP for support contact (email
+                        Drilyesamrani@gmail.com, phone +1 (438) 320-7431,
+                        website drilyesamrani.netlify.app). Full SMS terms
+                        are in our <a href="#sms-terms">SMS Terms</a>.
+                    </li>
+                    <li>
+                        <strong>No transfer of SMS consent.</strong> Mobile
+                        opt-in information and consent are never sold, rented,
+                        or shared with third parties or affiliates for
+                        marketing or promotional purposes. See our
+                        <a href="#privacy">Privacy Policy</a> for details.
+                    </li>
+                    <li>
+                        <strong>Acceptable use.</strong> You agree not to
+                        misuse the website or messaging services, including by
+                        submitting false information, attempting to disrupt
+                        the service, or using the service for any unlawful
+                        purpose.
+                    </li>
+                    <li>
+                        <strong>Intellectual property.</strong> All website
+                        content, including text, graphics, and images, is the
+                        property of the practice or its licensors and is
+                        protected by applicable copyright and trademark law.
+                    </li>
+                    <li>
+                        <strong>No warranty.</strong> The website is provided
+                        on an "as is" and "as available" basis without
+                        warranties of any kind, express or implied, to the
+                        fullest extent permitted by applicable law.
+                    </li>
+                    <li>
+                        <strong>Limitation of liability.</strong> To the
+                        fullest extent permitted by law, the practice is not
+                        liable for any indirect, incidental, or consequential
+                        damages arising from your use of the website or
+                        messaging services.
+                    </li>
+                    <li>
+                        <strong>Changes to these Terms.</strong> We may update
+                        these Terms from time to time. The "Last updated" date
+                        above reflects the most recent revision. Continued use
+                        of the website after a revision constitutes acceptance
+                        of the updated Terms.
+                    </li>
+                    <li>
+                        <strong>Governing law.</strong> These Terms are
+                        governed by the laws of the Province of Quebec,
+                        Canada, without regard to conflict-of-law principles.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <footer>
             <div class="logo">Dr. <span>Ilyes</span> Amrani</div>
+            <ul class="footer-links">
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#sms-terms">SMS Terms</a></li>
+            </ul>
             <p class="copy">© 2026 · Montreal, Canada</p>
             <a href="#contact" class="contact-btn">Contact</a>
         </footer>
