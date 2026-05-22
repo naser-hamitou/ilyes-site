@@ -603,10 +603,7 @@
                 gap: 80px;
                 align-items: start;
             }
-            .contact-label,
-            .sms-label,
-            .privacy-label,
-            .terms-label {
+            .contact-label {
                 font-family: 'Space Grotesk', sans-serif;
                 font-size: 0.72rem;
                 letter-spacing: 0.22em;
@@ -617,29 +614,20 @@
                 align-items: center;
                 gap: 12px;
             }
-            .contact-label::before,
-            .sms-label::before,
-            .privacy-label::before,
-            .terms-label::before {
+            .contact-label::before {
                 content: '';
                 display: block;
                 width: 32px;
                 height: 1px;
                 background: var(--teal);
             }
-            .contact-title,
-            .sms-title,
-            .privacy-title,
-            .terms-title {
+            .contact-title {
                 font-family: 'Cormorant Garamond', serif;
                 font-size: clamp(2.2rem, 3.6vw, 4rem);
                 font-weight: 300;
                 line-height: 1.08;
             }
-            .contact-title em,
-            .sms-title em,
-            .privacy-title em,
-            .terms-title em {
+            .contact-title em {
                 font-style: italic;
                 color: var(--teal);
             }
@@ -720,131 +708,39 @@
                 font-weight: 300;
                 line-height: 1.7;
             }
-            .sms-disclaimer a,
-            .sms-copy a,
-            .privacy-copy a,
-            .terms-copy a {
+            .sms-disclaimer a {
                 color: var(--teal);
                 text-decoration: none;
                 border-bottom: 1px solid oklch(0.52 0.14 185 / 0.35);
             }
+            .sms-consent {
+                display: flex;
+                gap: 12px;
+                align-items: flex-start;
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.82rem;
+                font-weight: 300;
+                line-height: 1.7;
+                color: var(--muted);
+            }
+            .sms-consent input[type='checkbox'] {
+                margin-top: 4px;
+                width: 16px;
+                height: 16px;
+                flex-shrink: 0;
+                accent-color: var(--teal);
+                cursor: pointer;
+            }
+            .sms-consent label {
+                cursor: pointer;
+                font: inherit;
+                letter-spacing: normal;
+                text-transform: none;
+                color: inherit;
+            }
             .form-submit {
                 justify-self: start;
                 margin-top: 10px;
-            }
-
-            /* SMS TERMS */
-            #sms-terms {
-                padding: 96px 56px;
-                border-top: 1px solid var(--line);
-                display: grid;
-                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-                gap: 80px;
-                align-items: start;
-            }
-            .sms-copy {
-                display: grid;
-                gap: 26px;
-                color: var(--muted);
-                font-family: 'DM Sans', sans-serif;
-                font-size: 0.94rem;
-                font-weight: 300;
-                line-height: 1.8;
-            }
-            .sms-copy strong {
-                color: var(--text);
-                font-weight: 500;
-            }
-            .sms-term-list {
-                border-top: 1px solid var(--line);
-            }
-            .sms-term {
-                display: grid;
-                grid-template-columns: minmax(130px, 0.34fr) minmax(0, 1fr);
-                gap: 28px;
-                padding: 20px 0;
-                border-bottom: 1px solid var(--line);
-            }
-            .sms-term h3 {
-                font-family: 'Space Grotesk', sans-serif;
-                font-size: 0.7rem;
-                font-weight: 500;
-                letter-spacing: 0.16em;
-                text-transform: uppercase;
-                color: var(--teal);
-            }
-            .sms-term ul {
-                display: grid;
-                gap: 8px;
-                list-style: none;
-            }
-            .sample-messages {
-                display: grid;
-                gap: 14px;
-            }
-            .sample-message {
-                border-left: 2px solid var(--teal);
-                padding-left: 18px;
-            }
-
-            /* PRIVACY */
-            #privacy {
-                padding: 96px 56px;
-                border-top: 1px solid var(--line);
-                display: grid;
-                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-                gap: 80px;
-            }
-            .privacy-copy {
-                display: grid;
-                gap: 22px;
-                color: var(--muted);
-                font-family: 'DM Sans', sans-serif;
-                font-size: 0.94rem;
-                font-weight: 300;
-                line-height: 1.8;
-            }
-            .privacy-copy strong {
-                color: var(--text);
-                font-weight: 500;
-            }
-            .privacy-list {
-                list-style: none;
-                border-top: 1px solid var(--line);
-            }
-            .privacy-list li {
-                padding: 18px 0;
-                border-bottom: 1px solid var(--line);
-            }
-
-            /* TERMS & CONDITIONS */
-            #terms {
-                padding: 96px 56px 110px;
-                border-top: 1px solid var(--line);
-                display: grid;
-                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-                gap: 80px;
-            }
-            .terms-copy {
-                display: grid;
-                gap: 22px;
-                color: var(--muted);
-                font-family: 'DM Sans', sans-serif;
-                font-size: 0.94rem;
-                font-weight: 300;
-                line-height: 1.8;
-            }
-            .terms-copy strong {
-                color: var(--text);
-                font-weight: 500;
-            }
-            .terms-list {
-                list-style: none;
-                border-top: 1px solid var(--line);
-            }
-            .terms-list li {
-                padding: 18px 0;
-                border-bottom: 1px solid var(--line);
             }
 
             /* FOOTER */
@@ -1032,10 +928,7 @@
                     padding: 80px 32px;
                     gap: 48px;
                 }
-                #sms-terms,
-                #contact,
-                #privacy,
-                #terms {
+                #contact {
                     padding: 88px 32px;
                     gap: 56px;
                 }
@@ -1192,20 +1085,13 @@
                     gap: 40px;
                     padding: 72px 24px;
                 }
-                #sms-terms,
-                #contact,
-                #privacy,
-                #terms {
+                #contact {
                     grid-template-columns: 1fr;
                     gap: 40px;
                     padding: 72px 24px;
                 }
                 .form-row {
                     grid-template-columns: 1fr;
-                }
-                .sms-term {
-                    grid-template-columns: 1fr;
-                    gap: 12px;
                 }
                 .about-stats {
                     grid-template-columns: 1fr;
@@ -1253,10 +1139,7 @@
                 #about {
                     padding: 60px 20px;
                 }
-                #sms-terms,
-                #contact,
-                #privacy,
-                #terms {
+                #contact {
                     padding: 60px 20px;
                 }
                 .treatment-card {
@@ -1300,9 +1183,9 @@
                 <li><a href="#treatments">Treatments</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#sms-terms">SMS</a></li>
-                <li><a href="#terms">Terms</a></li>
-                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="sms-terms.html#sms">SMS</a></li>
+                <li><a href="sms-terms.html#terms">Terms</a></li>
+                <li><a href="sms-terms.html#privacy">Privacy</a></li>
             </ul>
             <a href="#contact" class="nav-cta">Book Appointment</a>
         </nav>
@@ -1480,7 +1363,11 @@
                 <p class="contact-body">
                     Send your details and the care team will follow up about
                     availability, next steps, and appointment coordination.
-                    Providing a phone number is optional.
+                    Providing a phone number is optional. Phone numbers are
+                    collected online only through the form on this page, and
+                    submitting the form with a phone number opts you in to
+                    receive SMS text messages from Dr. Ilyes Amrani's dental
+                    clinic about your request.
                 </p>
                 <div class="contact-details" aria-label="Clinic details">
                     <p>Montreal, Canada</p>
@@ -1546,14 +1433,31 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
+                <div class="sms-consent">
+                    <input
+                        id="sms-consent"
+                        name="sms-consent"
+                        type="checkbox"
+                    />
+                    <label for="sms-consent">
+                        I agree to receive SMS text messages from Dr. Ilyes
+                        Amrani's dental clinic at the phone number I entered
+                        online in this form, for appointment scheduling,
+                        reminders, and replies to my inquiry. Consent is not a
+                        condition of any purchase or service. (Leave unchecked
+                        if you do not want SMS messages.)
+                    </label>
+                </div>
                 <p class="sms-disclaimer">
-                    By providing a telephone number and submitting the form, you
-                    are consenting to be contacted by SMS text message and
-                    agreeing to our <a href="#terms">Terms &amp; Conditions</a>
-                    and <a href="#privacy">Privacy Policy</a>. Message frequency
-                    may vary. Message and data rates may apply. Reply STOP to
-                    opt out of further messaging. Reply HELP for support
-                    contact (email
+                    By entering a telephone number into this online form,
+                    checking the box above, and submitting it on this website,
+                    you are consenting to be contacted by SMS text message and
+                    agreeing to our
+                    <a href="sms-terms.html#terms">Terms &amp; Conditions</a>
+                    and <a href="sms-terms.html#privacy">Privacy Policy</a>.
+                    Message frequency may vary. Message and data rates may
+                    apply. Reply STOP to opt out of further messaging. Reply
+                    HELP for support contact (email
                     <a href="mailto:Drilyesamrani@gmail.com"
                         >Drilyesamrani@gmail.com</a
                     >, phone
@@ -1565,282 +1469,13 @@
             </form>
         </section>
 
-        <section id="sms-terms">
-            <div>
-                <p class="sms-label">SMS Terms</p>
-                <h2 class="sms-title">
-                    Text updates for <em>patient care</em>.
-                </h2>
-            </div>
-            <div class="sms-copy">
-                <p>
-                    <strong>Campaign name:</strong> Dr. Ilyes Amrani phone
-                    campaign. SMS messages are used for appointment scheduling,
-                    reminders, follow-up coordination, and direct responses to
-                    patient or prospective patient inquiries.
-                </p>
-                <div class="sms-term-list">
-                    <div class="sms-term">
-                        <h3>Who Sends</h3>
-                        <p>
-                            Dr. Ilyes Amrani and authorized clinic staff may
-                            send messages related to dental care coordination.
-                        </p>
-                    </div>
-                    <div class="sms-term">
-                        <h3>Who Receives</h3>
-                        <p>
-                            Patients and prospective patients who voluntarily
-                            provide a phone number through this website, by
-                            phone, or in person may receive messages.
-                        </p>
-                    </div>
-                    <div class="sms-term">
-                        <h3>Campaign Type</h3>
-                        <p>
-                            Customer care and appointment reminders for dental
-                            services. The campaign is not used for lending,
-                            loans, financing offers, or age-gated content.
-                        </p>
-                    </div>
-                    <div class="sms-term">
-                        <h3>Content</h3>
-                        <ul>
-                            <li>Appointment requests and scheduling updates</li>
-                            <li>Appointment reminders and confirmations</li>
-                            <li>Care coordination and inquiry responses</li>
-                            <li>
-                                No age-gated content, lending or loan offers,
-                                unrelated third-party promotions, or marketing
-                                messages from affiliates
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="sms-term">
-                        <h3>Frequency</h3>
-                        <p>
-                            Message frequency varies by request and appointment
-                            activity, typically up to 4 messages per appointment
-                            or inquiry.
-                        </p>
-                    </div>
-                    <div class="sms-term">
-                        <h3>Consent</h3>
-                        <p>
-                            Providing a phone number is optional. If you provide
-                            one and submit the Contact Us form, you consent to
-                            receive SMS messages about your request.
-                        </p>
-                    </div>
-                    <div class="sms-term">
-                        <h3>Opt Out &amp; Help</h3>
-                        <p>
-                            Reply STOP at any time to opt out of further
-                            messaging. Reply HELP to receive an automated
-                            response containing our support contact: email
-                            <a href="mailto:Drilyesamrani@gmail.com"
-                                >Drilyesamrani@gmail.com</a
-                            >, phone
-                            <a href="tel:+14383207431">+1 (438) 320-7431</a>,
-                            and support website
-                            <a href="https://drilyesamrani.netlify.app"
-                                >drilyesamrani.netlify.app</a
-                            >. Message and data rates may apply.
-                        </p>
-                    </div>
-                    <div class="sms-term">
-                        <h3>Links</h3>
-                        <p>
-                            Messages may include links only when relevant to
-                            appointment scheduling, patient forms, clinic
-                            directions, or practice information.
-                        </p>
-                    </div>
-                </div>
-                <div class="sample-messages">
-                    <p><strong>Sample messages reviewed for this campaign:</strong></p>
-                    <p class="sample-message">
-                        Dr. Ilyes Amrani: We received your appointment request
-                        and will follow up with available times. Reply STOP to
-                        opt out or HELP for help.
-                    </p>
-                    <p class="sample-message">
-                        Dr. Ilyes Amrani: Your dental appointment is scheduled
-                        for [date] at [time]. Reply STOP to opt out or HELP for
-                        help.
-                    </p>
-                    <p>
-                        <strong>HELP auto-reply (sent when a recipient texts HELP):</strong>
-                    </p>
-                    <p class="sample-message">
-                        Dr. Ilyes Amrani Support: For help, email
-                        Drilyesamrani@gmail.com, call +1 (438) 320-7431, or
-                        visit drilyesamrani.netlify.app. Msg&amp;data rates
-                        may apply. Reply STOP to opt out.
-                    </p>
-                    <p>
-                        <strong>STOP auto-reply (sent when a recipient texts STOP):</strong>
-                    </p>
-                    <p class="sample-message">
-                        Dr. Ilyes Amrani: You are unsubscribed and will no
-                        longer receive messages from this number. Reply START
-                        to resubscribe.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="privacy">
-            <div>
-                <p class="privacy-label">Privacy Policy</p>
-                <h2 class="privacy-title">
-                    How contact details are <em>handled</em>.
-                </h2>
-            </div>
-            <div class="privacy-copy">
-                <p>
-                    Information submitted through this website is used to
-                    respond to appointment requests, answer questions, and
-                    coordinate dental care. This can include your name, email
-                    address, optional phone number, service interest, and
-                    message details.
-                </p>
-                <p>
-                    <strong>SMS consent is not transferable.</strong> Phone
-                    numbers and text-message opt-in consent collected by this
-                    practice are not sold, rented, or shared with third parties
-                    or affiliates for marketing or promotional purposes.
-                    No mobile information will be shared with third
-                    parties/affiliates for marketing/promotional purposes. All
-                    other categories exclude text messaging originator opt-in
-                    data and consent; this information will not be shared with
-                    any third parties.
-                </p>
-                <ul class="privacy-list">
-                    <li>
-                        Service providers may process contact requests only as
-                        needed to operate the website or clinic workflow.
-                    </li>
-                    <li>
-                        Mobile opt-in records and consent are excluded from any
-                        third-party data sharing.
-                    </li>
-                    <li>
-                        You can opt out of SMS communication at any time by
-                        replying STOP, or request help by replying HELP.
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="terms">
-            <div>
-                <p class="terms-label">Terms &amp; Conditions</p>
-                <h2 class="terms-title">
-                    Website and service <em>terms</em>.
-                </h2>
-            </div>
-            <div class="terms-copy">
-                <p>
-                    <strong>Last updated:</strong> May 2026. These Terms &amp;
-                    Conditions ("Terms") govern your use of this website
-                    operated by the dental practice of Dr. Ilyes Amrani
-                    ("we", "us", "our") and any related contact, appointment
-                    request, or SMS communication services we provide. By
-                    using this website or submitting your information, you
-                    agree to these Terms.
-                </p>
-                <p>
-                    <strong>Contact.</strong> Questions about these Terms can
-                    be sent to
-                    <a href="mailto:Drilyesamrani@gmail.com"
-                        >Drilyesamrani@gmail.com</a
-                    >
-                    or
-                    <a href="tel:+14383207431">+1 (438) 320-7431</a>.
-                </p>
-                <ul class="terms-list">
-                    <li>
-                        <strong>Informational use only.</strong> Content on
-                        this website is provided for general information about
-                        the practice and does not constitute medical, dental,
-                        or professional advice. A clinical consultation is
-                        required for any diagnosis or treatment.
-                    </li>
-                    <li>
-                        <strong>Appointment requests.</strong> Submitting the
-                        contact form is a request, not a confirmed
-                        appointment. Appointments are confirmed only after the
-                        clinic responds with a scheduled date and time.
-                    </li>
-                    <li>
-                        <strong>SMS messaging.</strong> If you provide a phone
-                        number and submit the contact form, you consent to
-                        receive SMS messages from Dr. Ilyes Amrani for
-                        appointment scheduling, reminders, care coordination,
-                        and responses to your inquiry. Message frequency
-                        varies; message and data rates may apply. Reply STOP
-                        to opt out. Reply HELP for support contact (email
-                        Drilyesamrani@gmail.com, phone +1 (438) 320-7431,
-                        website drilyesamrani.netlify.app). Full SMS terms
-                        are in our <a href="#sms-terms">SMS Terms</a>.
-                    </li>
-                    <li>
-                        <strong>No transfer of SMS consent.</strong> Mobile
-                        opt-in information and consent are never sold, rented,
-                        or shared with third parties or affiliates for
-                        marketing or promotional purposes. See our
-                        <a href="#privacy">Privacy Policy</a> for details.
-                    </li>
-                    <li>
-                        <strong>Acceptable use.</strong> You agree not to
-                        misuse the website or messaging services, including by
-                        submitting false information, attempting to disrupt
-                        the service, or using the service for any unlawful
-                        purpose.
-                    </li>
-                    <li>
-                        <strong>Intellectual property.</strong> All website
-                        content, including text, graphics, and images, is the
-                        property of the practice or its licensors and is
-                        protected by applicable copyright and trademark law.
-                    </li>
-                    <li>
-                        <strong>No warranty.</strong> The website is provided
-                        on an "as is" and "as available" basis without
-                        warranties of any kind, express or implied, to the
-                        fullest extent permitted by applicable law.
-                    </li>
-                    <li>
-                        <strong>Limitation of liability.</strong> To the
-                        fullest extent permitted by law, the practice is not
-                        liable for any indirect, incidental, or consequential
-                        damages arising from your use of the website or
-                        messaging services.
-                    </li>
-                    <li>
-                        <strong>Changes to these Terms.</strong> We may update
-                        these Terms from time to time. The "Last updated" date
-                        above reflects the most recent revision. Continued use
-                        of the website after a revision constitutes acceptance
-                        of the updated Terms.
-                    </li>
-                    <li>
-                        <strong>Governing law.</strong> These Terms are
-                        governed by the laws of the Province of Quebec,
-                        Canada, without regard to conflict-of-law principles.
-                    </li>
-                </ul>
-            </div>
-        </section>
-
         <footer>
             <div class="logo">Dr. <span>Ilyes</span> Amrani</div>
             <ul class="footer-links">
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#terms">Terms</a></li>
-                <li><a href="#privacy">Privacy</a></li>
-                <li><a href="#sms-terms">SMS Terms</a></li>
+                <li><a href="sms-terms.html#terms">Terms</a></li>
+                <li><a href="sms-terms.html#privacy">Privacy</a></li>
+                <li><a href="sms-terms.html#sms">SMS Terms</a></li>
             </ul>
             <p class="copy">© 2026 · Montreal, Canada</p>
             <a href="#contact" class="contact-btn">Contact</a>
@@ -2034,23 +1669,6 @@
                 delay: 0.2,
                 ease: 'power3.out',
             });
-            gsap.from('#sms-terms .sms-title, #sms-terms .sms-copy', {
-                scrollTrigger: {trigger: '#sms-terms', start: 'top 78%'},
-                y: 42,
-                opacity: 0,
-                stagger: 0.14,
-                duration: 0.8,
-                ease: 'power3.out',
-            });
-            gsap.from('#privacy .privacy-title, #privacy .privacy-copy', {
-                scrollTrigger: {trigger: '#privacy', start: 'top 78%'},
-                y: 42,
-                opacity: 0,
-                stagger: 0.14,
-                duration: 0.8,
-                ease: 'power3.out',
-            });
-
             gsap.to('#doctorImg', {
                 y: -80,
                 ease: 'none',
